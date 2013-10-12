@@ -1,0 +1,53 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@setfilename FILENAME.info
+@settitle UN TITRE
+@documentencoding UTF-8
+@afourpaper
+@setchapternewpage odd
+@documentlanguage fr
+@frenchspacing on
+@c %**end of header
+
+@copying
+INDICATIONS DE COPYRIGHT
+@end copying
+
+@documentdescription
+COURTE DESCRIPTION DU DOCUMENT.
+@end documentdescription
+
+@titlepage
+@title UN TITRE
+@author AUTEURS
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@shortcontents
+
+@ifnottex
+@node Top
+@top RE-TITRE
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Chapitre 1::
+* Chapitre 2::
+* Index::
+@end menu
+
+@node Chapitre 1
+@chapter Chapitre 1 @c{{{1
+
+@node Chapitre 2
+@chapter Chapitre 2 @c{{{1
+
+@node Index
+@appendix Index     @c{{{1
+
+@bye
+@c vim:foldmethod=marker

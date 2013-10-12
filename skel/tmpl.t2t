@@ -1,0 +1,14 @@
+Titre
+Auteur
+Date
+% vim: tw=55
+%!encoding: UTF-8
+
+=Niveau 1=
+
+++Niveau 2++
+
+//italique//
+**gras**
+__souligné__
+
