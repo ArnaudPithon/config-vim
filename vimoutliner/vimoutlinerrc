@@ -39,4 +39,6 @@ setlocal nowrap
 " Or create your own color scheme. You can find sample files in Vim's 
 " colors directory. There may even be a colors directory in your own
 " $HOME/.vim directory.
-colorscheme vo_mescouleurs
+colorscheme vo_wombat256
+
+" vim: ft=vim
