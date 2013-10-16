@@ -22,17 +22,21 @@ hi StatusLine   cterm=italic    ctermfg=black     ctermbg=grey
 hi StatusLineNC cterm=italic    ctermfg=black     ctermbg=darkgrey
 hi VertSplit    ctermfg=white
 
-" plugin Utl {{{
+" plugin UTL {{{
 " <URL:config:#r=hints>
 " Utilise des noms de groupe standard pour mettre en valeur les liens
 " (voir <URL:vimhelp:group-name>)
-"au BufWinEnter * hi link UtlTag PreProc
-"au BufWinEnter * hi link UtlUrl Underlined
-"au BufWinEnter * hi UtlUrl cterm=underline
-"
-let g:utl_cfg_hdl_scm_http_system = "!elinks '%u#%f'"
-let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
-let g:utl_cfg_hdl_mt_generic = '!rifle "%p"'
+" au BufWinEnter * hi link UtlTag PreProc
+" au BufWinEnter * hi link UtlUrl Underlined
+" au BufWinEnter * hi UtlUrl cterm=underline
+
+  let g:utl_cfg_hdl_scm_http_system = "silent !konqueror '%u#%f' &"
+  let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
+  let g:utl_cfg_hdl_mt_generic = '!rifle "%p"'
+  let g:utl_cfg_hdl_mt_application_pdf = 'silent !okular %p#%f &'
+" }}}
+" plugin UltiSnips {{{
+  let g:UltiSnipsExpandTrigger = "<S-Tab>"
 " }}}
 
 set secure
