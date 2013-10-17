@@ -1,13 +1,35 @@
+" vim: fdm=marker
+
 if exists('s:loaded')
   finish
 endif
 let s:loaded = 1
 
-let g:vimwiki_browsers=['konqueror', 'firefox']
+let g:vimwiki_browsers=['x-www-browser', 'konqueror', 'firefox']
+let g:vimwiki_hl_cb_checked = 1
+let g:vimwiki_folding = 'expr'
 
-let g:vimwiki_camel_case=0
+let g:vimwiki_hl_headers = 1
+hi VimwikiHeader1 ctermfg=yellow
+hi VimwikiHeader2 ctermfg=darkgreen
+hi VimwikiHeader3 ctermfg=darkcyan
+hi VimwikiHeader4 ctermfg=darkyellow
+"hi VimwikiHeader5 ctermfg=magenta
+"hi VimwikiHeader6 ctermfg=green
 
+" Redéfinit la colorisation de quelques éléments.
+" <url:file:///usr/share/vim/vimfiles/syntax/vimwiki.vim>
+hi link VimwikiDelText Comment
+hi VimwikiItalic term=italic cterm=italic gui=italic ctermfg=magenta
+hi VimwikiBoldItalic term=bold cterm=bold gui=bold,italic ctermfg=magenta
+
+" Wikis {{{1
 let wiki = {}
-let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp'}
-let g:vimwiki_list = [wiki]
+let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
 
+let DwarfFortress = {}
+let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
+
+let g:vimwiki_list = [wiki, DwarfFortress]
+
+" }}}
