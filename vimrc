@@ -1,6 +1,5 @@
 " ~/.vimrc
-" Maintainer:	Arnaud Pithon <apithon@free.fr>
-" Last Change:	
+" Maintainer: Arnaud Pithon <apithon@free.fr>
 
 " Pour le mapping de touches se renseigner sur mapleader
 let mapleader = ","
@@ -48,17 +47,17 @@ hi VertSplit    ctermfg=white
 " }}}
 " plugin Voom {{{ 
 " <URL:vimhelp:voom_shuttle_keys>
-let g:voom_return_key = '<C-Return>'
-let g:voom_tab_key = '<C-Tab>'
+  let g:voom_return_key = '<F2>'
+  let g:voom_tab_key = '<F3>'
 " }}}
 " plugin vimwiki {{{
-let wiki = {}
-let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
+  let wiki = {}
+  let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
 
-let DwarfFortress = {}
-let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
+  let DwarfFortress = {}
+  let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
 
-let g:vimwiki_list = [wiki, DwarfFortress]
+  let g:vimwiki_list = [wiki, DwarfFortress]
 " }}}
 
 set secure
