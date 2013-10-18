@@ -38,6 +38,11 @@ hi VertSplit    ctermfg=white
 " plugin UltiSnips {{{
   let g:UltiSnipsExpandTrigger = "<S-Tab>"
 " }}}
+" plugin Voom {{{ 
+" <URL:vimhelp:voom_shuttle_keys>
+let g:voom_return_key = '<C-Return>'
+let g:voom_tab_key = '<C-Tab>'
+" }}}
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
