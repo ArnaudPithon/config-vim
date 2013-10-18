@@ -43,6 +43,15 @@ hi VertSplit    ctermfg=white
 let g:voom_return_key = '<C-Return>'
 let g:voom_tab_key = '<C-Tab>'
 " }}}
+" plugin vimwiki {{{
+let wiki = {}
+let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
+
+let DwarfFortress = {}
+let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
+
+let g:vimwiki_list = [wiki, DwarfFortress]
+" }}}
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap

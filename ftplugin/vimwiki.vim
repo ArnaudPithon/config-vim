@@ -36,13 +36,3 @@ hi VimwikiItalic term=italic cterm=italic gui=italic ctermfg=magenta
 hi VimwikiBoldItalic term=bold cterm=bold gui=bold,italic ctermfg=magenta
 " }}}
 
-" Wikis {{{1
-let wiki = {}
-let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
-
-let DwarfFortress = {}
-let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
-
-let g:vimwiki_list = [wiki, DwarfFortress]
-
-" }}}
