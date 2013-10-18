@@ -47,8 +47,8 @@ hi VertSplit    ctermfg=white
 " }}}
 " plugin Voom {{{ 
 " <URL:vimhelp:voom_shuttle_keys>
-  let g:voom_return_key = '<F2>'
-  let g:voom_tab_key = '<F3>'
+  let g:voom_return_key = '<F8>'
+  let g:voom_tab_key = '<F9>'
 " }}}
 " plugin vimwiki {{{
   let wiki = {}
