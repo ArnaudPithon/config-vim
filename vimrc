@@ -9,6 +9,14 @@ let mapleader = ","
 set wildmenu
 let wildmode = "longest:full,full"
 
+" Mapping {{{1
+" Défilement du texte avec les touches fléchées.
+noremap <Up> <C-y>
+noremap <Down> <C-e>
+noremap <Left> 3zh
+noremap <Right> 3zl
+" }}}
+
 source $VIMRUNTIME/macros/matchit.vim
 
 if has("autocmd") " {{{1
