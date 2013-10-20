@@ -8,16 +8,19 @@ let s:loaded = 1
 set expandtab
 set tw=72
 
-let g:vimwiki_browsers=['x-www-browser', 'konqueror', 'firefox']
+let g:vimwiki_browsers=['konqueror', 'firefox']
 let g:vimwiki_hl_cb_checked = 1
-"let g:vimwiki_folding = 'expr'
+let g:vimwiki_folding = 'expr'
+set foldlevel=1
 
 " Keymap {{{1
-nmap <Leader>wf <Plug>VimwikiFollowLink
-nmap <Leader>wt <Plug>VimwikiTabnewLink
-nmap <Leader>wb <Plug>VimwikiGoBackLink
-nmap <Leader>wn <Plug>VimwikiNextLink
-nmap <Leader>wp <Plug>VimwikiPrevLink
+  "nmap <Leader>wf <Plug>VimwikiFollowLink
+  nmap <Leader>wt <Plug>VimwikiTabnewLink
+  nmap <Leader>ws <Plug>VimwikiSplitLink
+  nmap <Leader>wv <Plug>VimwikiVSplitLink
+  nmap <kHome>    <Plug>VimwikiGoBackLink
+  nmap <Leader>wn <Plug>VimwikiNextLink
+  "nmap <Leader>wp <Plug>VimwikiPrevLink
 " }}}
 
 " Highlight {{{1

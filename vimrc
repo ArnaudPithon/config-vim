@@ -33,9 +33,9 @@ hi VertSplit    ctermfg=white
 " <URL:config:#r=hints>
 " Utilise des noms de groupe standard pour mettre en valeur les liens
 " (voir <URL:vimhelp:group-name>)
-" au BufWinEnter * hi link UtlTag PreProc
+  au BufWinEnter * hi link UtlTag Comment
 " au BufWinEnter * hi link UtlUrl Underlined
-" au BufWinEnter * hi UtlUrl cterm=underline
+  au BufWinEnter * hi UtlUrl cterm=underline
 
   let g:utl_cfg_hdl_scm_http_system = "silent !konqueror '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
@@ -51,13 +51,18 @@ hi VertSplit    ctermfg=white
   let g:voom_tab_key = '<F9>'
 " }}}
 " plugin vimwiki {{{
+" Le reste de la conf: <url:./ftplugin/vimwiki.vim>
   let wiki = {}
-  let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh', 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
+  let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh',
+        \ 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
+  let wiki.ext = '.w'
 
   let DwarfFortress = {}
   let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
+  let DwarfFortress.ext = '.w'
 
   let g:vimwiki_list = [wiki, DwarfFortress]
+  let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 " }}}
 
 set secure
