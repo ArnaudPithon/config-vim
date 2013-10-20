@@ -64,6 +64,12 @@ hi VertSplit    ctermfg=white
   let g:vimwiki_list = [wiki, DwarfFortress]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 " }}}
+" plugin Calendar {{{
+  let g:calendar_keys = { 'goto_today':'T', 'redisplay':'l',
+        \ 'goto_prev_month':'<', 'goto_next_month':'>',
+        \ 'goto_prev_year':'(',  'goto_next_year':')'}
+  let g:calendar_monday = 1
+" }}}
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
