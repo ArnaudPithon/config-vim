@@ -39,6 +39,82 @@ setlocal nowrap
 " Or create your own color scheme. You can find sample files in Vim's 
 " colors directory. There may even be a colors directory in your own
 " $HOME/.vim directory.
-colorscheme vo_wombat256
+"
+" Non j'aime autant inclure mon profil de couleur habituel et placer les
+" spécificité de Vimoutliner ici.
+colorscheme wombat256
+
+hi OL1 ctermfg=yellow
+hi OL2 ctermfg=darkgreen
+hi OL3 ctermfg=darkcyan
+hi OL4 ctermfg=darkyellow
+hi OL5 ctermfg=magenta
+hi OL6 ctermfg=green
+hi OL7 ctermfg=lightblue
+hi OL8 ctermfg=cyan
+hi OL9 ctermfg=white
+
+"" colors for tags
+hi outlTags ctermfg=darkred
+
+"" color for body text
+hi BT1 ctermfg=grey
+hi! link BT2 BT1
+hi! link BT3 BT1
+hi! link BT4 BT1
+hi! link BT5 BT1
+hi! link BT6 BT1
+hi! link BT7 BT1
+hi! link BT8 BT1
+hi! link BT9 BT1
+
+"" color for pre-formatted text
+hi PT1 ctermfg=blue
+hi! link PT2 PT1
+hi! link PT3 PT1
+hi! link PT4 PT1
+hi! link PT5 PT1
+hi! link PT6 PT1
+hi! link PT7 PT1
+hi! link PT8 PT1
+hi! link PT9 PT1
+
+"" color for tables
+hi TA1 ctermfg=darkred
+hi! link TA2 TA1
+hi! link TA3 TA1
+hi! link TA4 TA1
+hi! link TA5 TA1
+hi! link TA6 TA1
+hi! link TA7 TA1
+hi! link TA8 TA1
+hi! link TA9 TA1
+
+"" color for user text (wrapping)
+hi UT1 ctermfg=white
+hi! link UT2 UT1
+hi! link UT3 UT1
+hi! link UT4 UT1
+hi! link UT5 UT1
+hi! link UT6 UT1
+hi! link UT7 UT1
+hi! link UT8 UT1
+hi! link UT9 UT1
+
+"" color for user text (non-wrapping)
+hi UB1 ctermfg=darkblue
+hi! link UB2 UB1
+hi! link UB3 UB1
+hi! link UB4 UB1
+hi! link UB5 UB1
+hi! link UB6 UB1
+hi! link UB7 UB1
+hi! link UB8 UB1
+hi! link UB9 UB1
+
+"" colors for experimental spelling error highlighting
+"" this only works for spellfix.vim with will be cease to exist soon
+hi link spellErr SpellBad
+hi link BadWord Error
 
 " vim: ft=vim
