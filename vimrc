@@ -54,7 +54,8 @@ hi VertSplit    ctermfg=white
 " Le reste de la conf: <url:./ftplugin/vimwiki.vim>
   let wiki = {}
   let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh',
-        \ 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl', 'ruby': 'ruby'}
+        \ 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl',
+        \ 'ruby': 'ruby', 'roff': 'nroff'}
   let wiki.ext = '.w'
 
   let DwarfFortress = {}
