@@ -1,5 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
+" Last modified: 2013-11-04 14:13:30+0100
 
 " Pour le mapping de touches se renseigner sur mapleader
 let mapleader = ","
@@ -22,6 +23,25 @@ if has("autocmd") " {{{1
 
   autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
   "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+
+  " If buffer modified, update any 'Last modified: ' in the first 20 lines.
+  " 'Last modified: ' can have up to 10 characters before (they are
+  " retained).
+  " Restores cursor and window position using save_cursor variable.
+  " source http://vim.wikia.com/wiki/Insert_current_date_or_time
+  function! LastModified() " {{{2
+    "let formatDate = '%a %b %d, %Y  %I:%M%p'
+    let formatDate = '%F %T%z' " ISO8601
+    if &modified
+      let save_cursor = getpos(".")
+      let n = min([20, line("$")])
+      keepjumps exe '1,' . n . 's#^\(.\{,10}Last modified: \).*#\1' .
+            \ strftime(formatDate) . '#e'
+      call histdel('search', -1)
+      call setpos('.', save_cursor)
+    endif
+  endfun " }}}2
+  autocmd BufWritePre * call LastModified()
 
 endif " }}}
 
@@ -64,6 +84,9 @@ hi VertSplit    ctermfg=white
 
   let g:vimwiki_list = [wiki, DwarfFortress]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
+
+  " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.
+  let g:vimwiki_global_ext = 1
 " }}}
 " plugin Calendar {{{
   let g:calendar_keys = { 'goto_today':'T', 'redisplay':'l',
