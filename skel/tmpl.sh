@@ -1,4 +1,6 @@
 #!/usr/bin/env dash
+# vim: ft=sh
 # $Id$
-# vim: ts=2 sw=2 ft=sh
+# Last modified: 2013-11-04 17:34:16+0100
+
 
