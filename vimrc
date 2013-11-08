@@ -1,28 +1,154 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-11-04 14:13:30+0100
+" Last modified: 2013-11-08 09:01:08+0100
 
-" Pour le mapping de touches se renseigner sur mapleader
-let mapleader = ","
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
+
+" Options {{{1
+" portée globale {{{2
+
+set encoding=utf-8
+set swapsync=   " Sans celà le disque est solicité à chaque modif.
+
+set backspace&  " Restaure le réglage par défaut.
+set history=50
+
+" Compatibilité Vi {{{3
+" Fonctionne en tant que Vim plutôt que Vi.
+" Modifie plusieurs options, doit donc être réglé très tôt.
+set nocompatible
+
+" Empèche l'écriture sur un fichier en lecture seule.
+set cpoptions+=W
+" }}}3
+
+" suffixes {{{3
+" Files with these suffixes get a lower priority when multiple files match a
+" wildcard.
+set suffixes+=.aux,.log,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set suffixes+=.dvi,.ps,.pdf
+" image formats
+set suffixes+=.jpg,.jpeg,.gif,.bmp,.pbm,.pgm,.ppm,.tga,.xbm,.xpm,.tif,.tiff,.png,.fli,.gl,.dl,.xcf,.xwd,.svg
+" audio formats
+set suffixes+=.ogg,.mp3,.wav,.mka,.flac
+" video formats
+set suffixes+=.mpg,.mpeg,.avi,.ogm,.ogv,.m2v,.wmv,.VOB,.mkv,.m2t,.ts,.flv,.mp4"}}}
+" suffixes }}}3
+
+" ligne de statut {{{3
+" Voir l'option "statusline" pour régler plus en détail.
+set showmode
+set showcmd
+set ruler
+" ligne de statut }}}3
+
+" recherche {{{3
+set incsearch
+set ignorecase smartcase
+if &t_Co > 2 || has("gui_running")
+  set hlsearch
+endif
+" recherche }}}3
+
+" Réaffecte le terminal détecté, quand utilisé dans tmux.
+" Entraine un léger bug sur la couleur du fond mais permet d'avoir l'italic.
+" Une autre option serait de réafecter t_ZH,t_ZR (d'autres ?) mais je crains
+" les effets de bord (voir `:h term' et `:set termcap')
+if &term == "screen-256color"   " valeur affectée par tmux
+  let &term = "rxvt-unicode-256color"
+endif
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+endif
+
+set visualbell
+
+set scrolloff=3
+set sidescrolloff=1 sidescroll=1
+
+set listchars=tab:».,trail:.,nbsp:␣
+set listchars+=precedes:<,extends:>
+
+set cryptmethod=blowfish
 
 " Mode de complétion
 set wildmenu
 let wildmode = "longest:full,full"
 
-" Mapping {{{1
-" Défilement du texte avec les touches fléchées.
-noremap <Up> <C-y>
-noremap <Down> <C-e>
-noremap <Left> 3zh
-noremap <Right> 3zl
-" }}}
+" portée locale à la fenêtre {{{2
 
-source $VIMRUNTIME/macros/matchit.vim
+set list
+set nowrap
+set linebreak
 
-if has("autocmd") " {{{1
+" portée locale au buffer {{{2
+
+" Indentation {{{3
+" (voir la recette "Indenting lines" p.42 du livre vim-recipes)
+set noexpandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab    " option globale !
+" Indentation }}}3
+
+" Définit quelles bases considérer pour les commandes CTRL-A et CTRL-X
+set nrformats=alpha,hex
+
+
+" Coloration {{{1
+
+colorscheme wombat256mod
+
+" Met en valeur l'espace fine insécable
+highlight FineNbSp ctermbg=darkgray guibg=lightred
+match FineNbSp / /
+
+" vimdiff {{{2
+" L'éclaircissement du bleu foncé est excellent dans le terminal pour
+" distinguer les répertoires mais dégueulasse dans vimdiff :
+highlight DiffAdd    ctermbg=17
+highlight DiffDelete ctermbg=32
+highlight DiffChange ctermbg=53
+highlight DiffText   ctermbg=1
+" }}}2
+
+hi StatusLine   cterm=italic    ctermfg=black     ctermbg=grey
+hi StatusLineNC cterm=italic    ctermfg=black     ctermbg=darkgrey
+hi VertSplit    ctermfg=white
+
+
+" Fonctions {{{1
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+
+" AutoCommandes {{{1
+
+if has("autocmd")
+  filetype plugin indent on
 
   autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
-  "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 
   " If buffer modified, update any 'Last modified: ' in the first 20 lines.
   " 'Last modified: ' can have up to 10 characters before (they are
@@ -43,12 +169,91 @@ if has("autocmd") " {{{1
   endfun " }}}2
   autocmd BufWritePre * call LastModified()
 
-endif " }}}
+  "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+  autocmd BufWritePost ~/.vimrc   source ~/.vimrc
 
-hi StatusLine   cterm=italic    ctermfg=black     ctermbg=grey
-hi StatusLineNC cterm=italic    ctermfg=black     ctermbg=darkgrey
-hi VertSplit    ctermfg=white
+endif " has("autocmd")
 
+
+" Mapping {{{1
+
+let mapleader = ","
+
+" Tab fait un Esc, Maj+Tab fait un Tab
+inoremap <Tab> <Esc>
+inoremap <S-Tab> <Tab>
+" Même chose, mais en mode visuel
+vnoremap <Tab> <Esc>
+vnoremap <S-Tab> <Tab>
+
+" Déplacements facilités dans les tags
+"noremap é <C-J>
+noremap ê <C-T>
+noremap à <C-O>
+
+" [HJKL] -> {CTSR}
+" ————————————————
+" {cr} = « gauche / droite »
+noremap c h
+noremap éc <C-w>h
+noremap r l
+noremap ér <C-w>l
+" {ts} = « haut / bas »
+noremap t j
+noremap ét <C-w>j
+noremap s k
+noremap és <C-w>k
+" {CR} = « haut / bas de l'écran »
+noremap C H
+noremap R L
+" Corollaire : repli suivant / précédent
+noremap zt zj
+noremap zs zk
+
+" {HJKL} <- [CTSR]
+" ————————————————
+" {J} = « Jusqu'à »            (j = suivant, J = précédant)
+noremap j t
+noremap J T
+" {H} = « Change »             (h = attend un mvt, H = jusqu'à la fin de ligne
+noremap h c
+noremap H C
+" {L} = « Remplace »           (l = un caractère slt, L = reste en « Remplace
+noremap l r
+noremap L R
+" {K} = « Substitue »          (k = caractère, K = ligne)
+noremap k s
+noremap K S
+" Corollaire : correction orthographique
+noremap ]k ]s
+noremap [k [s
+" <URL:vimhelp:K>
+noremap S K
+" Évite un conflit avec le plugin manpageview
+nunmap K
+
+" Désambiguation de {g}
+" —————————————————————
+" ligne écran précédente / suivante (à l'intérieur d'une phrase)
+noremap gs gk
+noremap gt gj
+" tab suivant / précédent
+noremap ,è gt
+noremap ,È gT
+
+noremap gT gJ
+
+" Défilement du texte avec les touches fléchées.
+noremap <Up> <C-y>
+noremap <Down> <C-e>
+noremap <Left> 3zh
+noremap <Right> 3zl
+" }}}
+" Plugins {{{1
+" plugin buftabs {{{
+" http://www.vim.org/scripts/script.php?script_id=1664
+let g:buftabs_only_basename=1
+" }}}
 " plugin UTL {{{
 " <URL:config:#r=hints>
 " Utilise des noms de groupe standard pour mettre en valeur les liens
@@ -94,6 +299,16 @@ hi VertSplit    ctermfg=white
         \ 'goto_prev_year':'(',  'goto_next_year':')'}
   let g:calendar_monday = 1
 " }}}
+" }}}
+
+if exists("vimpager")
+  hi Normal ctermfg=246 ctermbg=233
+  setlocal nolist linebreak
+  set notitle
+endif
+
+source $VIMRUNTIME/macros/matchit.vim
+
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
