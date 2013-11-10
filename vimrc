@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-11-08 09:01:08+0100
+" Last modified: 2013-11-10 11:06:43+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -238,8 +238,8 @@ nunmap K
 noremap gs gk
 noremap gt gj
 " tab suivant / précédent
-noremap ,è gt
-noremap ,È gT
+noremap gè gt
+noremap gÈ gT
 
 noremap gT gJ
 
