@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-11-10 11:06:43+0100
+" Last modified: 2013-11-12 14:24:31+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -170,7 +170,7 @@ if has("autocmd")
   autocmd BufWritePre * call LastModified()
 
   "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-  autocmd BufWritePost ~/.vimrc   source ~/.vimrc
+  autocmd BufWritePost ~/.config/vim/vimrc   source ~/.config/vim/vimrc
 
 endif " has("autocmd")
 
@@ -195,20 +195,39 @@ noremap à <C-O>
 " ————————————————
 " {cr} = « gauche / droite »
 noremap c h
-noremap éc <C-w>h
 noremap r l
-noremap ér <C-w>l
 " {ts} = « haut / bas »
 noremap t j
-noremap ét <C-w>j
 noremap s k
-noremap és <C-w>k
 " {CR} = « haut / bas de l'écran »
 noremap C H
 noremap R L
 " Corollaire : repli suivant / précédent
 noremap zt zj
 noremap zs zk
+" Déplacement entre fenêtres
+noremap ét <C-w>j
+noremap és <C-w>k
+noremap éc <C-w>h
+noremap ér <C-w>l
+noremap éw <C-w>w
+noremap éW <C-w>W
+noremap éè <C-w>t
+noremap éb <C-w>b
+noremap ép <C-w>p
+noremap éP <C-w>P
+" Déplacement des fenêtres
+noremap éC     <C-w>H
+noremap <C-W>C <C-w>H
+noremap éR     <C-w>L
+noremap <C-W>R <C-w>L
+noremap éT     <C-w>J
+noremap <C-W>T <C-w>J
+noremap éS     <C-w>K
+noremap <C-W>S <C-w>K
+noremap éÈ     <C-w>T
+noremap <C-W>È <C-w>T
+
 
 " {HJKL} <- [CTSR]
 " ————————————————
