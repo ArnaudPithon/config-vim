@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-11-12 14:24:31+0100
+" Last modified: 2013-12-13 12:29:41+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -103,6 +103,8 @@ set nrformats=alpha,hex
 " Coloration {{{1
 
 colorscheme wombat256mod
+
+hi Search term=reverse ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=NONE
 
 " Met en valeur l'espace fine insécable
 highlight FineNbSp ctermbg=darkgray guibg=lightred
