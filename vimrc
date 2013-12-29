@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-12-13 12:29:41+0100
+" Last modified: 2013-12-16 15:06:53+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -308,7 +308,11 @@ let g:buftabs_only_basename=1
   let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
   let DwarfFortress.ext = '.w'
 
-  let g:vimwiki_list = [wiki, DwarfFortress]
+  let Pokemon = {}
+  let Pokemon.path = '~/Documents/jeux/Pokémon/vimwiki/'
+  let Pokemon.ext = '.w'
+
+  let g:vimwiki_list = [wiki, DwarfFortress, Pokemon]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 
   " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.
