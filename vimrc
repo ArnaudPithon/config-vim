@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-11-12 14:24:31+0100
+" Last modified: 2014-02-09 07:51:16+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -281,7 +281,7 @@ let g:buftabs_only_basename=1
 " au BufWinEnter * hi link UtlUrl Underlined
   au BufWinEnter * hi UtlUrl cterm=underline
 
-  let g:utl_cfg_hdl_scm_http_system = "silent !konqueror '%u#%f' &"
+  let g:utl_cfg_hdl_scm_http_system = "silent !luakit '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
   let g:utl_cfg_hdl_mt_generic = '!rifle "%p"'
   let g:utl_cfg_hdl_mt_application_pdf = 'silent !okular %p#%f &'
@@ -297,6 +297,7 @@ let g:buftabs_only_basename=1
 " plugin vimwiki {{{
 " Le reste de la conf: <url:./ftplugin/vimwiki.vim>
   let wiki = {}
+  let wiki.path = '~/Documents/wikis/main/'
   let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh',
         \ 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl',
         \ 'ruby': 'ruby', 'roff': 'nroff'}
@@ -306,11 +307,15 @@ let g:buftabs_only_basename=1
   let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
   let DwarfFortress.ext = '.w'
 
-  let g:vimwiki_list = [wiki, DwarfFortress]
+  let simulation = {}
+  let simulation.path = '~/Documents/wikis/simulation'
+  let simulation.ext = '.w'
+
+  let g:vimwiki_list = [wiki, DwarfFortress, simulation]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 
   " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.
-  let g:vimwiki_global_ext = 1
+  let g:vimwiki_global_ext = 0
 " }}}
 " plugin Calendar {{{
   let g:calendar_keys = { 'goto_today':'T', 'redisplay':'l',
