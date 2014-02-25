@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2014-02-09 07:51:16+0100
+" Last modified: 2014-02-25 23:40:14+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -103,6 +103,8 @@ set nrformats=alpha,hex
 " Coloration {{{1
 
 colorscheme wombat256mod
+
+hi Search term=reverse ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=NONE
 
 " Met en valeur l'espace fine insécable
 highlight FineNbSp ctermbg=darkgray guibg=lightred
@@ -311,7 +313,11 @@ let g:buftabs_only_basename=1
   let simulation.path = '~/Documents/wikis/simulation'
   let simulation.ext = '.w'
 
-  let g:vimwiki_list = [wiki, DwarfFortress, simulation]
+  let Pokemon = {}
+  let Pokemon.path = '~/Documents/jeux/Pokémon/vimwiki/'
+  let Pokemon.ext = '.w'
+
+  let g:vimwiki_list = [wiki, DwarfFortress, simulation, Pokemon]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 
   " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.

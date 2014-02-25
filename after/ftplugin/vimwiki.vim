@@ -15,3 +15,6 @@ inoremap <Tab>   <Esc>
 inoremap <S-Tab> <Tab>
 
 let s:loaded = 1
+
+" Désactive le retour à la ligne automatique.
+set formatoptions-=t
