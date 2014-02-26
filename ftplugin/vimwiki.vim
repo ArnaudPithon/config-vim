@@ -10,11 +10,11 @@ setlocal foldlevel=1
 
 " Keymap {{{1
   "nmap <Leader>wf <Plug>VimwikiFollowLink
-  nmap <Leader>wt <Plug>VimwikiTabnewLink
-  nmap <Leader>ws <Plug>VimwikiSplitLink
-  nmap <Leader>wv <Plug>VimwikiVSplitLink
-  nmap <kHome>    <Plug>VimwikiGoBackLink
-  nmap <Leader>wn <Plug>VimwikiNextLink
+  nmap <buffer> <LocalLeader>wt <Plug>VimwikiTabnewLink
+  nmap <buffer> <LocalLeader>ws <Plug>VimwikiSplitLink
+  nmap <buffer> <LocalLeader>wv <Plug>VimwikiVSplitLink
+  nmap <buffer> <kHome>         <Plug>VimwikiGoBackLink
+  nmap <buffer> <LocalLeader>wn <Plug>VimwikiNextLink
   "nmap <Leader>wp <Plug>VimwikiPrevLink
 " }}}
 
