@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2013-12-16 15:06:53+0100
+" Last modified: 2014-02-07 08:10:19+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -299,6 +299,7 @@ let g:buftabs_only_basename=1
 " plugin vimwiki {{{
 " Le reste de la conf: <url:./ftplugin/vimwiki.vim>
   let wiki = {}
+  let wiki.path = '~/Documents/wikis/main/'
   let wiki.nested_syntaxes = {'python': 'python', 'sh': 'sh',
         \ 'lisp': 'lisp', 'vim': 'vim', 'perl': 'perl',
         \ 'ruby': 'ruby', 'roff': 'nroff'}
