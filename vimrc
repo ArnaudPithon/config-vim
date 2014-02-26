@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2014-02-25 23:40:14+0100
+" Last modified: 2014-02-26 01:02:35+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -73,11 +73,17 @@ set sidescrolloff=1 sidescroll=1
 set listchars=tab:».,trail:.,nbsp:␣
 set listchars+=precedes:<,extends:>
 
+set showbreak=~
+
 set cryptmethod=blowfish
 
 " Mode de complétion
 set wildmenu
 let wildmode = "longest:full,full"
+
+" Programme utilisé pour formater le texte avec `gq`.
+" Le formatage habituel de vim peut être obtenu avec `gw`.
+set formatprg=par\ w55\ e1
 
 " portée locale à la fenêtre {{{2
 
