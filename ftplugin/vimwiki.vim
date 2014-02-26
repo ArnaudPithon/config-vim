@@ -5,13 +5,13 @@ if exists('s:loaded')
 endif
 let s:loaded = 1
 
-set expandtab
-set tw=72
+setlocal expandtab
+setlocal tw=72
 
 let g:vimwiki_browsers=['konqueror', 'firefox']
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_folding = 'expr'
-set foldlevel=1
+setlocal foldlevel=1
 
 " Keymap {{{1
   "nmap <Leader>wf <Plug>VimwikiFollowLink

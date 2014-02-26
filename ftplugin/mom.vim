@@ -7,4 +7,4 @@ endif
 let s:loaded = 1
 
 " Settings
-set textwidth=72
+setlocal textwidth=72

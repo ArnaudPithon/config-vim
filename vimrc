@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2014-02-07 08:10:19+0100
+" Last modified: 2014-02-26 01:12:16+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -73,11 +73,17 @@ set sidescrolloff=1 sidescroll=1
 set listchars=tab:».,trail:.,nbsp:␣
 set listchars+=precedes:<,extends:>
 
+set showbreak=~
+
 set cryptmethod=blowfish
 
 " Mode de complétion
 set wildmenu
 let wildmode = "longest:full,full"
+
+" Programme utilisé pour formater le texte avec `gq`.
+" Le formatage habituel de vim peut être obtenu avec `gw`.
+set formatprg=par\ w55\ e1
 
 " portée locale à la fenêtre {{{2
 
@@ -283,7 +289,7 @@ let g:buftabs_only_basename=1
 " au BufWinEnter * hi link UtlUrl Underlined
   au BufWinEnter * hi UtlUrl cterm=underline
 
-  let g:utl_cfg_hdl_scm_http_system = "silent !konqueror '%u#%f' &"
+  let g:utl_cfg_hdl_scm_http_system = "silent !luakit '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
   let g:utl_cfg_hdl_mt_generic = '!rifle "%p"'
   let g:utl_cfg_hdl_mt_application_pdf = 'silent !okular %p#%f &'
@@ -309,15 +315,19 @@ let g:buftabs_only_basename=1
   let DwarfFortress.path = '~/Documents/jeux/Dwarf_Fortress/vimwiki/'
   let DwarfFortress.ext = '.w'
 
+  let simulation = {}
+  let simulation.path = '~/Documents/wikis/simulation'
+  let simulation.ext = '.w'
+
   let Pokemon = {}
   let Pokemon.path = '~/Documents/jeux/Pokémon/vimwiki/'
   let Pokemon.ext = '.w'
 
-  let g:vimwiki_list = [wiki, DwarfFortress, Pokemon]
+  let g:vimwiki_list = [wiki, DwarfFortress, simulation, Pokemon]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 
   " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.
-  let g:vimwiki_global_ext = 1
+  let g:vimwiki_global_ext = 0
 " }}}
 " plugin Calendar {{{
   let g:calendar_keys = { 'goto_today':'T', 'redisplay':'l',
