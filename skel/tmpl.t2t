@@ -1,14 +1,14 @@
-Titre
-Auteur
-Date
+titre
+auteur
+date
 % vim: tw=55
 %!encoding: UTF-8
+%!options(xhtml): --toc --toc-level 2
 
-=Niveau 1=
+%%toc
 
-++Niveau 2++
+**Synopsis** :
 
-//italique//
-**gras**
-__souligné__
+**Story Codes** :
+
 
