@@ -11,12 +11,6 @@ colorscheme contact
 " Options {{{1
 " portée globale {{{2
 
-set encoding=utf-8
-set swapsync=   " Sans celà le disque est solicité à chaque modif.
-
-set backspace&  " Restaure le réglage par défaut.
-set history=50
-
 " Compatibilité Vi {{{3
 " Fonctionne en tant que Vim plutôt que Vi.
 " Modifie plusieurs options, doit donc être réglé très tôt.
@@ -25,6 +19,13 @@ set nocompatible
 " Empèche l'écriture sur un fichier en lecture seule.
 set cpoptions+=W
 " }}}3
+
+set encoding=utf-8
+set swapsync=   " Sans celà le disque est solicité à chaque modif.
+
+set backspace&  " Restaure le réglage par défaut.
+
+set history=500
 
 " suffixes {{{3
 " Files with these suffixes get a lower priority when multiple files match a
