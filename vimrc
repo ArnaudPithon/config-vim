@@ -6,6 +6,8 @@ if v:progname =~? "evim"
   finish
 endif
 
+colorscheme contact
+
 " Options {{{1
 " portée globale {{{2
 
@@ -104,11 +106,6 @@ set smarttab    " option globale !
 
 " Définit quelles bases considérer pour les commandes CTRL-A et CTRL-X
 set nrformats=alpha,hex
-
-
-" Coloration {{{1
-
-colorscheme wombat256mod
 
 
 " Fonctions {{{1
