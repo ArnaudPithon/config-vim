@@ -1,6 +1,6 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2014-02-26 01:12:16+0100
+" Last modified: 2014-02-27 17:23:30+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -70,7 +70,7 @@ set visualbell
 set scrolloff=3
 set sidescrolloff=1 sidescroll=1
 
-set listchars=tab:».,trail:.,nbsp:␣
+set listchars=tab:»·,trail:·,nbsp:␣
 set listchars+=precedes:<,extends:>
 
 set showbreak=~
@@ -90,6 +90,7 @@ set formatprg=par\ w55\ e1
 set list
 set nowrap
 set linebreak
+"set relativenumber " numérote les lignes relativement à la ligne courante
 
 " portée locale au buffer {{{2
 

@@ -17,20 +17,3 @@ setlocal foldlevel=1
   nmap <buffer> <LocalLeader>wn <Plug>VimwikiNextLink
   "nmap <Leader>wp <Plug>VimwikiPrevLink
 " }}}
-
-" Highlight {{{1
-let g:vimwiki_hl_headers = 1
-hi VimwikiHeader1 ctermfg=yellow
-hi VimwikiHeader2 ctermfg=darkgreen
-hi VimwikiHeader3 ctermfg=darkcyan
-hi VimwikiHeader4 ctermfg=darkyellow
-"hi VimwikiHeader5 ctermfg=magenta
-"hi VimwikiHeader6 ctermfg=green
-
-" Redéfinit la colorisation de quelques éléments.
-" <url:file:///usr/share/vim/vimfiles/syntax/vimwiki.vim>
-hi link VimwikiDelText Comment
-hi VimwikiItalic term=italic cterm=italic gui=italic ctermfg=magenta
-hi VimwikiBoldItalic term=bold cterm=bold gui=bold,italic ctermfg=magenta
-" }}}
-
