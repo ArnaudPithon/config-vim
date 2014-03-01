@@ -1,6 +1,5 @@
 " ~/.vimrc
 " Maintainer: Arnaud Pithon <apithon@free.fr>
-" Last modified: 2014-02-27 17:23:30+0100
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -110,25 +109,6 @@ set nrformats=alpha,hex
 " Coloration {{{1
 
 colorscheme wombat256mod
-
-hi Search term=reverse ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=NONE
-
-" Met en valeur l'espace fine insécable
-highlight FineNbSp ctermbg=darkgray guibg=lightred
-match FineNbSp / /
-
-" vimdiff {{{2
-" L'éclaircissement du bleu foncé est excellent dans le terminal pour
-" distinguer les répertoires mais dégueulasse dans vimdiff :
-highlight DiffAdd    ctermbg=17
-highlight DiffDelete ctermbg=32
-highlight DiffChange ctermbg=53
-highlight DiffText   ctermbg=1
-" }}}2
-
-hi StatusLine   cterm=italic    ctermfg=black     ctermbg=grey
-hi StatusLineNC cterm=italic    ctermfg=black     ctermbg=darkgrey
-hi VertSplit    ctermfg=white
 
 
 " Fonctions {{{1
@@ -337,12 +317,6 @@ let g:buftabs_only_basename=1
   let g:calendar_monday = 1
 " }}}
 " }}}
-
-if exists("vimpager")
-  hi Normal ctermfg=246 ctermbg=233
-  setlocal nolist linebreak
-  set notitle
-endif
 
 source $VIMRUNTIME/macros/matchit.vim
 
