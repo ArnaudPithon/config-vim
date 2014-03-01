@@ -315,8 +315,7 @@ let g:buftabs_only_basename=1
 " }}}
 " }}}
 
-source $VIMRUNTIME/macros/matchit.vim
-
+runtime macros/matchit.vim
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
