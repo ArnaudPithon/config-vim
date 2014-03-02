@@ -162,8 +162,13 @@ if has("autocmd")
   autocmd BufWritePre * call LastModified()
 
   "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-  autocmd BufWritePost ~/.config/vim/vimrc   source ~/.config/vim/vimrc
 
+  " Prend en compte immédiatement les modifications
+  "autocmd BufWritePost $XDG_CONFIG_HOME/vim/vimrc source $XDG_CONFIG_HOME/vim/vimrc
+
+  " Met en valeur la fenêtre ayant le focus.
+  au WinEnter * :setl cursorline
+  au WinLeave * :setl nocursorline
 endif " has("autocmd")
 
 " }}}
