@@ -43,9 +43,9 @@ if version >= 700
 endif
 
 " Diff highlighting
-hi DiffAdd				ctermbg=17
-hi DiffDelete	ctermfg=60		ctermbg=234		cterm=reverse
-hi DiffText				ctermbg=53		cterm=none
+hi DiffAdd				ctermbg=53
+hi DiffDelete	ctermfg=53		ctermbg=232
+hi DiffText				ctermbg=52
 hi DiffChange				ctermbg=237
 
 "hi CursorIM
