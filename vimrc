@@ -176,6 +176,7 @@ endif " has("autocmd")
 " Mapping {{{1
 
 let mapleader = ","
+let maplocalleader = ","
 
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
@@ -258,6 +259,8 @@ noremap gt gj
 noremap gè gt
 noremap gÈ gT
 
+" <url:vimhelp:J>
+noremap T J
 noremap gT gJ
 
 " Défilement du texte avec les touches fléchées.
@@ -289,7 +292,8 @@ let g:buftabs_only_basename=1
   let g:UltiSnipsExpandTrigger = "<S-Tab>"
 " }}}
 " plugin Voom {{{ 
-" <URL:vimhelp:voom_shuttle_keys>
+" <URL:vimhelp:voom-options>
+" <URL:vimhelp:voom-shuttle-keys>
   let g:voom_return_key = '<F8>'
   let g:voom_tab_key = '<F9>'
 " }}}
