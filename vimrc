@@ -20,6 +20,8 @@ set nocompatible
 set cpoptions+=W
 " }}}3
 
+set undodir=$XDG_CACHE_HOME/vim/undo
+
 set encoding=utf-8
 set swapsync=   " Sans celà le disque est solicité à chaque modif.
 
