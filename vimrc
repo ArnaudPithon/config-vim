@@ -1,5 +1,5 @@
 " ~/.vimrc
-" Maintainer: Arnaud Pithon <apithon@free.fr>
+" Maintainer: arno <apithon@free.fr>
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -108,6 +108,8 @@ set smarttab    " option globale !
 " Définit quelles bases considérer pour les commandes CTRL-A et CTRL-X
 set nrformats=alpha,hex
 
+" }}}
+" }}}
 
 " Fonctions {{{1
 
@@ -119,6 +121,7 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" }}}
 
 " AutoCommandes {{{1
 
@@ -161,6 +164,7 @@ if has("autocmd")
 
 endif " has("autocmd")
 
+" }}}
 
 " Mapping {{{1
 
@@ -255,6 +259,7 @@ noremap <Down> <C-e>
 noremap <Left> 3zh
 noremap <Right> 3zl
 " }}}
+
 " Plugins {{{1
 " plugin buftabs {{{
 " http://www.vim.org/scripts/script.php?script_id=1664
@@ -314,6 +319,19 @@ let g:buftabs_only_basename=1
         \ 'goto_prev_year':'(',  'goto_next_year':')'}
   let g:calendar_monday = 1
 " }}}
+" plugin Project {{{
+" <url:helptags:project-flags>
+" g : map <F12> pour ouvrir / fermer la fenêtre de Project.
+let g:proj_flags  = 'imstg'
+" }}}
+" plugin GoldenView {{{
+" Je préfère qu'il soit désactivé par défaut. D'une
+" parcequ'il fache le plugin Project. De deux, pour
+" prendre le temps d'apprendre à utiliser correctement
+" ce que propose Vim avant de chercher une béquille.
+let g:goldenview__enable_at_startup = 0
+" }}}
+
 " }}}
 
 runtime macros/matchit.vim
