@@ -3,7 +3,7 @@ auteur
 date
 % vim: tw=55
 %!encoding: UTF-8
-%!options(xhtml): --toc --toc-level 2
+%!options(xhtml): --toc --toc-level 3
 
 %%toc
 
