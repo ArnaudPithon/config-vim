@@ -74,7 +74,7 @@ set visualbell
 set scrolloff=3
 set sidescrolloff=1 sidescroll=1
 
-set listchars=tab:»·,trail:·,nbsp:␣
+set listchars=tab:>·,trail:·,nbsp:␣
 set listchars+=precedes:<,extends:>
 
 set showbreak=~
