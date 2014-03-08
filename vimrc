@@ -107,6 +107,8 @@ set shiftwidth=4
 set smarttab    " option globale !
 " Indentation }}}3
 
+set spellfile=$XDG_CONFIG_HOME/vim/spell/local.utf-8.add
+
 " Définit quelles bases considérer pour les commandes CTRL-A et CTRL-X
 set nrformats=alpha,hex
 
