@@ -178,7 +178,7 @@ endif " has("autocmd")
 " Mapping {{{1
 
 let mapleader = ","
-let maplocalleader = ","
+let maplocalleader = ";"
 
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
