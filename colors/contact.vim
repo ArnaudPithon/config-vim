@@ -85,6 +85,7 @@ hi Special	ctermfg=229		cterm=none
 hi String	ctermfg=113		cterm=none
 hi Comment	ctermfg=246		cterm=none
 hi Todo		ctermfg=101		cterm=none
+hi Underlined	ctermfg=252		cterm=underline	term=underline
 
 
 " Links
