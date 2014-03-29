@@ -1,7 +1,7 @@
-titre
-auteur
-date
-% vim: tw=55
+Titre
+Auteur
+Date
+% vim: tw=55 foldmethod=syntax
 %!encoding: UTF-8
 %!options(xhtml): --toc --toc-level 3
 
