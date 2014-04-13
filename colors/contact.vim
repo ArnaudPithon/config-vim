@@ -48,6 +48,11 @@ hi DiffDelete	ctermfg=53		ctermbg=232
 hi DiffText				ctermbg=52
 hi DiffChange				ctermbg=237
 
+" Onglets
+hi TabLine	cterm=none
+hi TabLineFill	ctermbg=black	cterm=none
+hi TabLineSel	ctermbg=22	term=bold	cterm=bold
+
 "hi CursorIM
 "hi Directory
 "hi IncSearch
@@ -63,9 +68,6 @@ hi DiffChange				ctermbg=237
 "hi SpellCap
 "hi SpellLocal
 "hi SpellRare
-"hi TabLine
-"hi TabLineFill
-"hi TabLineSel
 "hi Tooltip
 "hi User1
 "hi User9
