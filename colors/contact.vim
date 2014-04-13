@@ -45,7 +45,7 @@ endif
 " Diff highlighting
 hi DiffAdd				ctermbg=53
 hi DiffDelete	ctermfg=53		ctermbg=232
-hi DiffText				ctermbg=52
+hi DiffText				ctermbg=88
 hi DiffChange				ctermbg=237
 
 " Onglets
