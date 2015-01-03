@@ -150,35 +150,35 @@ if has("autocmd")
   " Restores cursor and window position using save_cursor variable.
   " source http://vim.wikia.com/wiki/Insert_current_date_or_time
   function! LastModified() " {{{2
-    "let formatDate = '%a %b %d, %Y  %I:%M%p'
-    let formatDate = '%F %T%z' " ISO8601
+    "let s:formatDate = '%a %b %d, %Y  %I:%M%p'
+    let s:formatDate = '%F %T%z' " ISO8601
     if &modified
       let save_cursor = getpos(".")
       let n = min([20, line("$")])
       keepjumps exe '1,' . n . 's#^\(.\{,10}Last modified: \).*#\1' .
-            \ strftime(formatDate) . '#e'
+            \ strftime(s:formatDate) . '#e'
       call histdel('search', -1)
       call setpos('.', save_cursor)
     endif
   endfun " }}}2
   autocmd BufWritePre * call LastModified()
 
-  "au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+  "autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
   " Prend en compte immédiatement les modifications
   "autocmd BufWritePost $XDG_CONFIG_HOME/vim/vimrc source $XDG_CONFIG_HOME/vim/vimrc
 
   " Met en valeur la fenêtre ayant le focus.
-  au WinEnter * :setl cursorline
-  au WinLeave * :setl nocursorline
+  autocmd WinEnter * :setl cursorline
+  autocmd WinLeave * :setl nocursorline
 endif " has("autocmd")
 
 " }}}
 
 " Mapping {{{1
 
-let mapleader = ","
-let maplocalleader = ";"
+let g:mapleader = ","
+let g:maplocalleader = ";"
 
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
@@ -281,9 +281,9 @@ let g:buftabs_only_basename=1
 " <URL:config:#r=hints>
 " Utilise des noms de groupe standard pour mettre en valeur les liens
 " (voir <URL:vimhelp:group-name>)
-  au BufWinEnter * hi link UtlTag Comment
-" au BufWinEnter * hi link UtlUrl Underlined
-  au BufWinEnter * hi UtlUrl cterm=underline
+  autocmd BufWinEnter * highlight link UtlTag Comment
+" autocmd BufWinEnter * highlight link UtlUrl Underlined
+  autocmd BufWinEnter * highlight UtlUrl cterm=underline
 
   let g:utl_cfg_hdl_scm_http_system = "silent !luakit '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
@@ -320,7 +320,11 @@ let g:buftabs_only_basename=1
   let Pokemon.path = '~/Documents/jeux/Pokémon/vimwiki/'
   let Pokemon.ext = '.w'
 
-  let g:vimwiki_list = [wiki, DwarfFortress, simulation, Pokemon]
+  let eros = {}
+  let eros.path = '~/Documents/livres/eros/vimwiki/'
+  let eros.ext = '.w'
+
+  let g:vimwiki_list = [wiki, DwarfFortress, simulation, Pokemon, eros]
   let g:vimwiki_ext2syntax = {'.w': 'vimwiki'}
 
   " BUG: Je ne comprends pas pourquoi ça ne fonctionne pas.
