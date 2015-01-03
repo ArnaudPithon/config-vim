@@ -132,14 +132,18 @@ endif
 if has("autocmd")
   filetype plugin indent on
 
-  autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+  augroup vimrc
+    autocmd!
+  augroup END
+
+  autocmd! vimrc BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
   " Also don't do it when the mark is in the first line, that is the default
   " position when opening a file.
-  autocmd BufReadPost *
+  autocmd vimrc BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
@@ -161,16 +165,16 @@ if has("autocmd")
       call setpos('.', save_cursor)
     endif
   endfun " }}}2
-  autocmd BufWritePre * call LastModified()
+  autocmd vimrc BufWritePre * call LastModified()
 
-  "autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+  "autocmd vimrc BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 
   " Prend en compte immédiatement les modifications
-  "autocmd BufWritePost $XDG_CONFIG_HOME/vim/vimrc source $XDG_CONFIG_HOME/vim/vimrc
+  "autocmd vimrc BufWritePost $XDG_CONFIG_HOME/vim/vimrc source $XDG_CONFIG_HOME/vim/vimrc
 
   " Met en valeur la fenêtre ayant le focus.
-  autocmd WinEnter * :setl cursorline
-  autocmd WinLeave * :setl nocursorline
+  autocmd vimrc WinEnter * :setl cursorline
+  autocmd vimrc WinLeave * :setl nocursorline
 endif " has("autocmd")
 
 " }}}
@@ -281,9 +285,9 @@ let g:buftabs_only_basename=1
 " <URL:config:#r=hints>
 " Utilise des noms de groupe standard pour mettre en valeur les liens
 " (voir <URL:vimhelp:group-name>)
-  autocmd BufWinEnter * highlight link UtlTag Comment
-" autocmd BufWinEnter * highlight link UtlUrl Underlined
-  autocmd BufWinEnter * highlight UtlUrl cterm=underline
+  autocmd vimrc BufWinEnter * highlight link UtlTag Comment
+" autocmd vimrc BufWinEnter * highlight link UtlUrl Underlined
+  autocmd vimrc BufWinEnter * highlight UtlUrl cterm=underline
 
   let g:utl_cfg_hdl_scm_http_system = "silent !luakit '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
