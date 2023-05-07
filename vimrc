@@ -79,7 +79,7 @@ set listchars+=precedes:<,extends:>
 
 set showbreak=~
 
-set cryptmethod=blowfish
+set cryptmethod=blowfish2
 
 " Mode de complétion
 set wildmenu
