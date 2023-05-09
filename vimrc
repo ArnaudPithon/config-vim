@@ -23,7 +23,9 @@ set cpoptions+=W
 set undodir=$XDG_CACHE_HOME/vim/undo
 
 set encoding=utf-8
-set swapsync=   " Sans celà le disque est solicité à chaque modif.
+if !has('nvim')
+  set swapsync=   " Sans celà le disque est solicité à chaque modif.
+endif
 
 set backspace&  " Restaure le réglage par défaut.
 
@@ -79,7 +81,9 @@ set listchars+=precedes:<,extends:>
 
 set showbreak=~
 
-set cryptmethod=blowfish2
+if !has('nvim')
+  set cryptmethod=blowfish2
+endif
 
 " Mode de complétion
 set wildmenu
