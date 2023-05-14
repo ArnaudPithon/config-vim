@@ -373,7 +373,8 @@ else
 endif
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'andrewradev/tagalon.vim'
+Plug 'mattn/emmet-vim'
+Plug 'AndrewRadev/tagalong.vim'
 
 call plug#end()
 " }}}
