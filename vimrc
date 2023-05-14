@@ -357,5 +357,20 @@ let g:goldenview__enable_at_startup = 0
 
 runtime macros/matchit.vim
 
+" section vim-plug {{{
+call plug#begin('~/.config/vim/plugged')
+
+if has("nvim")
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim' " depends: python-msgpack, python-pynvim
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
+call plug#end()
+" }}}
+
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
