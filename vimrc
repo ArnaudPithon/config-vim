@@ -361,7 +361,7 @@ let g:goldenview__enable_at_startup = 0
 
 runtime macros/matchit.vim
 
-" section vim-plug {{{
+" Chargement des plugins avec vim-plug {{{
 call plug#begin('~/.config/vim/plugged')
 
 if has("nvim")
@@ -375,8 +375,23 @@ endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'AndrewRadev/tagalong.vim'
+Plug 'dense-analysis/ale'
 
 call plug#end()
+" }}}
+
+" Configuration des plugins {{{
+"
+" Emmet
+" Limite l'utilisation d'Emmet aux buffers html et css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+" Changement de la combinaison leader
+let g:user_emmet_leader_key='<C-E>'
+"
+" Tagalong
+let g:tagalong_verbose = 1
+"
 " }}}
 
 set secure
