@@ -388,9 +388,16 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " Changement de la combinaison leader
 let g:user_emmet_leader_key='<C-E>'
+let g:emmet_html5 = 0
 let g:user_emmet_settings = {
-      \ 'indentation' : '  '
-      \}
+      \ 'indentation' : '  ',
+      \ 'variables' : {
+      \      'lang': 'fr',
+      \},
+      \ 'html' : {
+      \       'empty_element_suffix': ' />',
+      \},
+\}
 "
 " Tagalong
 let g:tagalong_verbose = 1
