@@ -104,10 +104,10 @@ set linebreak
 
 " Indentation {{{3
 " (voir la recette "Indenting lines" p.42 du livre vim-recipes)
-set noexpandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set expandtab
+set tabstop=8
+set softtabstop=2
+set shiftwidth=2
 set smarttab    " option globale !
 " Indentation }}}3
 
@@ -388,6 +388,9 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 " Changement de la combinaison leader
 let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_settings = {
+      \ 'indentation' : '  '
+      \}
 "
 " Tagalong
 let g:tagalong_verbose = 1
