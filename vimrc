@@ -185,8 +185,8 @@ endif " has("autocmd")
 
 " Mapping {{{1
 
-let g:mapleader = ","
-let g:maplocalleader = ";"
+let g:mapleader = ','
+let g:maplocalleader = ';'
 
 " Tab fait un Esc, Maj+Tab fait un Tab
 inoremap <Tab> <Esc>
@@ -379,6 +379,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 " automatically rename closing HTML/XML tags
 Plug 'AndrewRadev/tagalong.vim'
+" Attention à ALE - Il serait en conflit avec COC.nvim
 " ALE (Asynchronous Lint Engine) provide linting (syntax checking and semantic errors)
 " while you edit your text files, and acts as a Vim Language Server Protocol client.
 Plug 'dense-analysis/ale'
@@ -386,9 +387,9 @@ Plug 'dense-analysis/ale'
 call plug#end()
 " }}}
 
-" Configuration des plugins {{{
+" Configuration des plugins
 "
-" Emmet
+" Emmet {{{
 " Limite l'utilisation d'Emmet aux buffers html et css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -404,79 +405,11 @@ let g:user_emmet_settings = {
       \       'empty_element_suffix': ' />',
       \},
 \}
-"
+" }}}
+
 " Tagalong
 let g:tagalong_verbose = 1
 "
-
-" === Denite setup === {{{
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
-"            (aka ignore .git files)
-"
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
-
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
-
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--heading', '-S'])
-
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
-
-" Custom options for Denite
-"   split                       - Use floating window for Denite
-"   start_filter                - Start filtering on default
-"   auto_resize                 - Auto resize the Denite window height automatically.
-"   source_names                - Use short long names if multiple sources
-"   prompt                      - Customize denite prompt
-"   highlight_matched_char      - Matched characters highlight
-"   highlight_matched_range     - matched range highlight
-"   highlight_window_background - Change background group in floating window
-"   highlight_filter_background - Change background group in floating filter window
-"   winrow                      - Set Denite filter window to top
-"   vertical_preview            - Open the preview window vertically
-
-let s:denite_options = {'default' : {
-\ 'split': 'floating',
-\ 'start_filter': 1,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'prompt': 'λ ',
-\ 'highlight_matched_char': 'QuickFixLine',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'DiffAdd',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-call s:profile(s:denite_options)
-" Denite }}}
-
-" }}}
 
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
