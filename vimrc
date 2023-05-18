@@ -361,55 +361,5 @@ let g:goldenview__enable_at_startup = 0
 
 runtime macros/matchit.vim
 
-" Chargement des plugins avec vim-plug {{{
-call plug#begin('~/.config/vim/plugged')
-
-if has("nvim")
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  " Denite : Fuzzy file finding, file management, project searching
-  Plug 'Shougo/denite.nvim' " depends: python-msgpack, python-pynvim
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Intellisense code engine, autocompletion, linting, code fixing
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" support for expanding abbreviations (CSS, HTML, …)
-Plug 'mattn/emmet-vim'
-" automatically rename closing HTML/XML tags
-Plug 'AndrewRadev/tagalong.vim'
-" Attention à ALE - Il serait en conflit avec COC.nvim
-" ALE (Asynchronous Lint Engine) provide linting (syntax checking and semantic errors)
-" while you edit your text files, and acts as a Vim Language Server Protocol client.
-Plug 'dense-analysis/ale'
-
-call plug#end()
-" }}}
-
-" Configuration des plugins
-"
-" Emmet {{{
-" Limite l'utilisation d'Emmet aux buffers html et css
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-" Changement de la combinaison leader
-let g:user_emmet_leader_key=','
-let g:emmet_html5 = 0
-let g:user_emmet_settings = {
-      \ 'indentation' : '  ',
-      \ 'variables' : {
-      \      'lang': 'fr',
-      \},
-      \ 'html' : {
-      \       'empty_element_suffix': ' />',
-      \},
-\}
-" }}}
-
-" Tagalong
-let g:tagalong_verbose = 1
-"
-
 set secure
 " vim: foldmethod=marker expandtab ts=2 sw=2 nowrap
