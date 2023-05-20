@@ -285,22 +285,20 @@ noremap <Right> 3zl
 " http://www.vim.org/scripts/script.php?script_id=1664
 let g:buftabs_only_basename=1
 " }}}
-" plugin UTL {{{
-" <URL:config:#r=hints>
-" Utilise des noms de groupe standard pour mettre en valeur les liens
-" (voir <URL:vimhelp:group-name>)
-  autocmd vimrc BufWinEnter * highlight link UtlTag Comment
-" autocmd vimrc BufWinEnter * highlight link UtlUrl Underlined
-  autocmd vimrc BufWinEnter * highlight UtlUrl cterm=underline
+" plugin utl {{{
+" <url:config:#r=hints>
+" utilise des noms de groupe standard pour mettre en valeur les liens
+" (voir <url:vimhelp:group-name>)
+  autocmd vimrc bufwinenter * highlight link utltag comment
+" autocmd vimrc bufwinenter * highlight link utlurl underlined
+  autocmd vimrc bufwinenter * highlight utlurl cterm=underline
 
   let g:utl_cfg_hdl_scm_http_system = "silent !luakit '%u#%f' &"
   let g:utl_cfg_hdl_scm_mailto = "silent !x-term -e mutt '%u'"
   let g:utl_cfg_hdl_mt_generic = '!rifle "%p"'
   let g:utl_cfg_hdl_mt_application_pdf = 'silent !okular %p#%f &'
 " }}}
-" plugin UltiSnips {{{
-  let g:UltiSnipsExpandTrigger = "<S-Tab>"
-" }}}
+
 " plugin Voom {{{ 
 " <URL:vimhelp:voom-options>
 " <URL:vimhelp:voom-shuttle-keys>
